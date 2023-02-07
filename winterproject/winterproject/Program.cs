@@ -4,23 +4,23 @@ Raylib.InitWindow(1024,768, "WinterProject");
 Raylib.SetTargetFPS(60);
 bool LongSword = false;
 String CScene = "Start"; 
-String Sword = "Not Owned";
-int Potion5hp = 0;
-int Potion10hp = 0;
-int Level = 1;
-int LevelCheck = 0;
-int Part = 1;
-int Partcheck = 0;
-int Gold = 0;
+String sword = "Not Owned";
+int potion5hp = 0;
+int potion10hp = 0;
+int level = 1;
+int levelCheck = 0;
+int part = 1;
+int partCheck = 0;
+int gold = 0;
 float HP = 20;
-float Speedmultiplier = 0.4f;
-float meleecd = 0.2f;
+float speedMultiplier = 0.4f;
+float meleeCD = 0.2f;
 /* ------------[Colours]------------*/
-Color GREEN2 = new Color(35, 165, 70,255);
+Color green2 = new Color(35, 165, 70,255);
 Color lvlPink = new Color(164, 35, 130,255);
 Color Path = new Color(175,175,175,255);
-Color Testhouse = new Color(160, 70, 0, 255);
-Color TestRed = new Color(220,50,50,255);
+Color testhouse = new Color(160, 70, 0, 255);
+Color testRed = new Color(220,50,50,255);
 /* ------------[Hitboxes and bases]------------*/
 Rectangle blacksmith = new Rectangle(2000,2000,80,80);
 Rectangle bozo = new Rectangle(100,100,50,70);
@@ -48,12 +48,12 @@ if(LongSword == true){
 }
 
 void MeleeCD(){
-if(meleecd > 0f){
- meleecd -= 0.01f;
+if(meleeCD > 0f){
+ meleeCD -= 0.01f;
 }
 }
 void Enemyt1_0Reset(){
-  if(Partcheck == 1 || CScene == "End" || CScene == "Won" || Raylib.IsKeyPressed(KeyboardKey.KEY_H)){
+  if(partCheck == 1 || CScene == "End" || CScene == "Won" || Raylib.IsKeyPressed(KeyboardKey.KEY_H)){
   enemyt1_0.x = 1100;
   enemyt1_0.y = 600;
   enemyt1_1.x = 500;
@@ -64,82 +64,82 @@ void Enemyt1_0Reset(){
 }
 void EnemyMovement(){
 if(enemyt1_0.x > bozo.x){
-enemyt1_0.x -= 2*Speedmultiplier;
+enemyt1_0.x -= 2*speedMultiplier;
 }
 else{
-  enemyt1_0.x += 2*Speedmultiplier;
+  enemyt1_0.x += 2*speedMultiplier;
 }
 if(enemyt1_0.y > bozo.y){
-  enemyt1_0.y -= 2*Speedmultiplier;
+  enemyt1_0.y -= 2*speedMultiplier;
 }
 else{
-  enemyt1_0.y += 2*Speedmultiplier;
+  enemyt1_0.y += 2*speedMultiplier;
 }
 
 if(enemyt1_1.x > bozo.x){
-enemyt1_1.x -= 2*Speedmultiplier;
+enemyt1_1.x -= 2*speedMultiplier;
 }
 else{
-  enemyt1_1.x += 2*Speedmultiplier;
+  enemyt1_1.x += 2*speedMultiplier;
 }
 if(enemyt1_1.y > bozo.y){
-  enemyt1_1.y -= 2*Speedmultiplier;
+  enemyt1_1.y -= 2*speedMultiplier;
 }
 else{
-  enemyt1_1.y += 2*Speedmultiplier;
+  enemyt1_1.y += 2*speedMultiplier;
 }
 
 if(enemyt1_2.x > bozo.x){
-enemyt1_2.x -= 2*Speedmultiplier;
+enemyt1_2.x -= 2*speedMultiplier;
 }
 else{
-  enemyt1_2.x += 2*Speedmultiplier;
+  enemyt1_2.x += 2*speedMultiplier;
 }
 if(enemyt1_2.y > bozo.y){
-  enemyt1_2.y -= 2*Speedmultiplier;
+  enemyt1_2.y -= 2*speedMultiplier;
 }
 else{
-  enemyt1_2.y += 2*Speedmultiplier;
+  enemyt1_2.y += 2*speedMultiplier;
 }
 }
 void Potions(){
-  if(CScene == "Game" && Potion10hp > 0 && Raylib.IsKeyReleased(KeyboardKey.KEY_TWO) == true){
+  if(CScene == "Game" && potion10hp > 0 && Raylib.IsKeyReleased(KeyboardKey.KEY_TWO) == true){
   HP += 10;
-  Potion10hp -= 1;
+  potion10hp -= 1;
   } 
-  if(CScene == "Game" && Potion5hp > 0 && Raylib.IsKeyReleased(KeyboardKey.KEY_ONE) == true){
+  if(CScene == "Game" && potion5hp > 0 && Raylib.IsKeyReleased(KeyboardKey.KEY_ONE) == true){
   HP += 5;
-  Potion5hp -= 1;
+  potion5hp -= 1;
   } 
 }
 void HUD(){
      Raylib.DrawText($"HP: {(int)HP}",5,5,18,Color.BLACK); /*HP*/
-     Raylib.DrawText($"Gold: {Gold}",5,25,18,Color.BLACK); /*gold. sidenote, i hate centering text lines*/
-     Raylib.DrawText($"5hp potions: {Potion5hp} [1]",5,45,18,Color.BLACK); /*5hp potions*/
-     Raylib.DrawText($"10hp potions: {Potion10hp} [2]",5,65,18,Color.BLACK); /*10hp potions*/
+     Raylib.DrawText($"Gold: {gold}",5,25,18,Color.BLACK); /*gold. sidenote, i hate centering text lines*/
+     Raylib.DrawText($"5hp potions: {potion5hp} [1]",5,45,18,Color.BLACK); /*5hp potions*/
+     Raylib.DrawText($"10hp potions: {potion10hp} [2]",5,65,18,Color.BLACK); /*10hp potions*/
     /* Raylib.DrawText($"Longsword: {Sword}",0,0,18,Color.BLACK); Dunno if i'll leave this in the game, makes the HUD too tall imo and im too stupid to find a solution*/
 }
 void Reset(){
-    Partcheck = 0;
-    Part = 1;
-    Level = 1;
-    LevelCheck = 0;
+    partCheck = 0;
+    part = 1;
+    level = 1;
+    levelCheck = 0;
     bozo.x = 100;
     bozo.y = 100;
     HP = 20;
-    Potion10hp = 0;
-    Potion5hp = 0;
+    potion10hp = 0;
+    potion5hp = 0;
     LongSword = false;
     Enemyt1_0Reset();
 }
 void Partplusone(){
     if(Raylib.CheckCollisionRecs(bozo, partend) == true){
-    Partcheck = 1;
+    partCheck = 1;
    }
 }
 void Partsminusone(){
     if(Raylib.CheckCollisionRecs(bozo, minuspart) == true){
-    Partcheck = -1;
+    partCheck = -1;
    }
 }
 void Smithmenu(){
@@ -152,55 +152,55 @@ void EnemyCollision(){
   if(Raylib.CheckCollisionRecs(bozo,enemyt1_0) == true || Raylib.CheckCollisionRecs(bozo,enemyt1_1) == true || Raylib.CheckCollisionRecs(bozo,enemyt1_2) == true){
   HP -= 0.05f;
   }
-  if(Raylib.CheckCollisionRecs(atk1,enemyt1_0) == true && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && meleecd <= 0f){
-    Gold += 3;
-    Speedmultiplier += 0.03f;
+  if(Raylib.CheckCollisionRecs(atk1,enemyt1_0) == true && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && meleeCD <= 0f){
+    gold += 3;
+    speedMultiplier += 0.03f;
     enemyt1_0.x = 1100;
     enemyt1_0.y = 600;
-    meleecd = 0.2f;
+    meleeCD = 0.2f;
   }
-  if(Raylib.CheckCollisionRecs(atk1,enemyt1_1) == true && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && meleecd <= 0f){
-    Gold += 3;
-    Speedmultiplier += 0.03f;
+  if(Raylib.CheckCollisionRecs(atk1,enemyt1_1) == true && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && meleeCD <= 0f){
+    gold += 3;
+    speedMultiplier += 0.03f;
     enemyt1_1.x = 500;
     enemyt1_1.y = -200;
-    meleecd = 0.2f;
+    meleeCD = 0.2f;
   }
-  if(Raylib.CheckCollisionRecs(atk2,enemyt1_2) == true && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && meleecd <= 0f){
-    Gold += 3;
-    Speedmultiplier += 0.03f;
+  if(Raylib.CheckCollisionRecs(atk2,enemyt1_2) == true && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && meleeCD <= 0f){
+    gold += 3;
+    speedMultiplier += 0.03f;
     enemyt1_2.x = 175;
     enemyt1_2.y = 900;
-    meleecd = 0.2f;
+    meleeCD = 0.2f;
   }
-  if(Raylib.CheckCollisionRecs(atk2,enemyt1_0) == true && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && meleecd <= 0f && LongSword == true){
-    Gold += 3;
-    Speedmultiplier += 0.03f;
+  if(Raylib.CheckCollisionRecs(atk2,enemyt1_0) == true && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && meleeCD <= 0f && LongSword == true){
+    gold += 3;
+    speedMultiplier += 0.03f;
     enemyt1_0.x = 1100;
     enemyt1_0.y = 600;
-    meleecd = 0.2f;
+    meleeCD = 0.2f;
   }
-  if(Raylib.CheckCollisionRecs(atk2,enemyt1_1) == true && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && meleecd <= 0f && LongSword == true){
-    Gold += 3;
-    Speedmultiplier += 0.03f;
+  if(Raylib.CheckCollisionRecs(atk2,enemyt1_1) == true && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && meleeCD <= 0f && LongSword == true){
+    gold += 3;
+    speedMultiplier += 0.03f;
     enemyt1_1.x = 500;
     enemyt1_1.y = -200;
-    meleecd = 0.2f;
+    meleeCD = 0.2f;
   }
-  if(Raylib.CheckCollisionRecs(atk2,enemyt1_2) == true && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && meleecd <= 0f && LongSword == true){
-    Gold += 3;
-    Speedmultiplier += 0.03f;
+  if(Raylib.CheckCollisionRecs(atk2,enemyt1_2) == true && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && meleeCD <= 0f && LongSword == true){
+    gold += 3;
+    speedMultiplier += 0.03f;
     enemyt1_2.x = 175;
     enemyt1_2.y = 900;
-    meleecd = 0.2f;
+    meleeCD = 0.2f;
   }
 
   
 }
     void Enemytype1(){
-       Raylib.DrawRectangle((int)enemyt1_0.x,(int)enemyt1_0.y,(int)enemyt1_0.width,(int)enemyt1_0.height,TestRed);
-       Raylib.DrawRectangle((int)enemyt1_1.x,(int)enemyt1_1.y,(int)enemyt1_1.width,(int)enemyt1_1.height,TestRed);
-       Raylib.DrawRectangle((int)enemyt1_2.x,(int)enemyt1_2.y,(int)enemyt1_2.width,(int)enemyt1_2.height,TestRed);
+       Raylib.DrawRectangle((int)enemyt1_0.x,(int)enemyt1_0.y,(int)enemyt1_0.width,(int)enemyt1_0.height,testRed);
+       Raylib.DrawRectangle((int)enemyt1_1.x,(int)enemyt1_1.y,(int)enemyt1_1.width,(int)enemyt1_1.height,testRed);
+       Raylib.DrawRectangle((int)enemyt1_2.x,(int)enemyt1_2.y,(int)enemyt1_2.width,(int)enemyt1_2.height,testRed);
     }
     
 
@@ -256,18 +256,18 @@ if(bozo.x > 974)
     /* Raylib.DrawTexture(background1, (int)background0.x, (int)background0.y,Color.WHITE); */
        /*Level 1 specific stuff */
       
-  if(Level == 1 && CScene == "Game"){
+  if(level == 1 && CScene == "Game"){
     Potions();
     if(HP > 20){
       HP = 20;
     }
     HUD();
     EnemyMovement();
-    Raylib.ClearBackground(GREEN2);
-   if(Raylib.IsKeyPressed(KeyboardKey.KEY_M)){Gold += 10;} /*test thing that i will leave in for presentation to simplify showing the game*/
+    Raylib.ClearBackground(green2);
+   if(Raylib.IsKeyPressed(KeyboardKey.KEY_M)){gold += 10;} /*test thing that i will leave in for presentation to simplify showing the game*/
   
     /* Raylib.DrawTexture(background1,500,500,Color.GREEN); bozo ass code doesnt wanna work :angy: */
-    if(Part == 1){
+    if(part == 1){
    partend.y = 718;
    partend.x = 800;
    minuspart.x = 2000; 
@@ -282,7 +282,7 @@ if(bozo.x > 974)
    EnemyCollision();
    Enemyt1_0Reset();
     }
-     if(Part == 2){
+     if(part == 2){
        partend.y = 300;
        partend.x = 0;
        minuspart.x = 974;
@@ -297,7 +297,7 @@ if(bozo.x > 974)
        Partsminusone();
        Smithmenu();
      }
-      if(Part == 3){       
+      if(part == 3){       
         partend.y = 600;
         partend.x = 75;
         minuspart.x = 600;
@@ -316,22 +316,22 @@ if(bozo.x > 974)
 
 /*potion10hp*/
 if(CScene == "Smithmenu"){
-  if(Raylib.IsKeyPressed(KeyboardKey.KEY_FOUR) && Gold >= 50){
-    Gold -= 50;
-    Potion10hp += 1;
+  if(Raylib.IsKeyPressed(KeyboardKey.KEY_FOUR) && gold >= 50){
+    gold -= 50;
+    potion10hp += 1;
   }
   /*LongSword*/
   if(CScene == "Smithmenu"){
-  if(Raylib.IsKeyPressed(KeyboardKey.KEY_ONE) && Gold >= 100 && LongSword == false){
-    Gold -= 100;
+  if(Raylib.IsKeyPressed(KeyboardKey.KEY_ONE) && gold >= 100 && LongSword == false){
+    gold -= 100;
     LongSword = true;
    }
   }
   /*potion5hp*/
   if(CScene == "Smithmenu"){
-    if(Raylib.IsKeyPressed(KeyboardKey.KEY_THREE) && Gold >= 30){
-      Gold -= 30;
-      Potion5hp += 1;
+    if(Raylib.IsKeyPressed(KeyboardKey.KEY_THREE) && gold >= 30){
+      gold -= 30;
+      potion5hp += 1;
     }
   }
 
@@ -398,7 +398,7 @@ if(CScene == "Won" && Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER)){
   }
   /*------------[Shop Graphics]------------ */
    if(CScene == "Smithmenu"){
-     Raylib.DrawRectangle(0,0,100,100,GREEN2);
+     Raylib.DrawRectangle(0,0,100,100,green2);
      HUD();
      Raylib.DrawRectangle(200,200,624,368,Color.DARKGRAY);
      Raylib.DrawRectangle(210,210,604,348,Color.LIGHTGRAY);
@@ -416,15 +416,15 @@ if(CScene == "Won" && Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER)){
 
      /* Retexturing when you get enough gold */
 
-     if(Gold >= 150){
+     if(gold >= 150){
       Raylib.DrawText("Revolver: 250GOLD",250,325,20,Color.BLACK);
       Raylib.DrawText("Press '2' to buy",250,350,10,Color.BLACK);
      }
-      if(Gold >= 30){
+      if(gold >= 30){
        Raylib.DrawText("potion 5hp: 30GOLD",560,275,20,Color.BLACK);
        Raylib.DrawText("Press '3' to buy",560,300,10,Color.BLACK);
       }
-       if(Gold >= 50){
+       if(gold >= 50){
         Raylib.DrawText("Large Sword: 100GOLD",250,275,20,Color.BLACK);
         Raylib.DrawText("Press '1' to buy",250,300,10,Color.BLACK);
         Raylib.DrawText("potion 10hp: 50GOLD",560,325,20,Color.BLACK);
@@ -433,25 +433,25 @@ if(CScene == "Won" && Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER)){
      /*1024,768 just saving screen resolution here so i can use it for coordinates*/
    }
   /*Level scripts*/
-  if (Partcheck == 1){
-    Part += 1;
-    Partcheck = 0;
+  if (partCheck == 1){
+    part += 1;
+    partCheck = 0;
    /* CScene = "End"; this was/is basically just to test if it worked as intended */
   }
-  if(Partcheck == -1){
-    Part -= 1;
-    Partcheck = 0;
+  if(partCheck == -1){
+    part -= 1;
+    partCheck = 0;
   }
   
-  if(LevelCheck == 1){
-    Level += 1;
-    Part = 1;
-    LevelCheck = 0;
+  if(levelCheck == 1){
+    level += 1;
+    part = 1;
+    levelCheck = 0;
   }
-  else if(LevelCheck == 1 && Level == 3){
-  Level = 1;
-  Part = 1;
-  LevelCheck = 0;
+  else if(levelCheck == 1 && level == 3){
+  level = 1;
+  part = 1;
+  levelCheck = 0;
   CScene = "Won";
   }
  Raylib.EndDrawing();
