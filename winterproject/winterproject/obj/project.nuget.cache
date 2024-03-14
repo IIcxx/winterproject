@@ -1,11 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "qCdmXsbOuPvdqRmv8MR7yUjmb0O4He4Kx2yWe9jUdFcL2K70T+f9+EMMIy7W0A4bQ5AB6Syu0VMbTkWTVra5Vw==",
+  "dgSpecHash": "FhsPQtIXctXxnJa+yTMCgeBDr+pw0RDwitwI3VjwFfUZmGox23ig9vhc6uiR4uftzZDMooqVPhnSl9Yf+Og7QQ==",
   "success": true,
   "projectFilePath": "C:\\programming folder\\winterproject\\winterproject\\winterproject\\winterproject.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\viktor.karlsson1\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\viktor.karlsson1\\.nuget\\packages\\raylib-cs\\4.2.0.1\\raylib-cs.4.2.0.1.nupkg.sha512",
-    "C:\\Users\\viktor.karlsson1\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+    "C:\\Users\\viktor.karlsson1\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\viktor.karlsson1\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.27\\microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\viktor.karlsson1\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.27\\microsoft.windowsdesktop.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\viktor.karlsson1\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.27\\microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\viktor.karlsson1\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.27\\microsoft.netcore.app.host.win-x64.6.0.27.nupkg.sha512"
   ],
   "logs": []
 }

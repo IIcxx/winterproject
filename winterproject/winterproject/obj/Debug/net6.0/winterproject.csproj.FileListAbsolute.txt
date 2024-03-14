@@ -19,3 +19,4 @@ C:\programming folder\winterproject\winterproject\winterproject\obj\Debug\net6.0
 C:\programming folder\winterproject\winterproject\winterproject\obj\Debug\net6.0\winterproject.pdb
 C:\programming folder\winterproject\winterproject\winterproject\obj\Debug\net6.0\winterproject.genruntimeconfig.cache
 C:\programming folder\winterproject\winterproject\winterproject\obj\Debug\net6.0\ref\winterproject.dll
+C:\programming folder\winterproject\winterproject\winterproject\bin\Debug\net6.0\Newtonsoft.Json.dll
